@@ -7,15 +7,15 @@
     </style>
 {% endblock head %}
 
-{% block body %} 
+{% block page_content %} 
 <div class="container">
     <div class="page-header">
         <h1>Hello, {% if name %} {{ name }} {% else %} Stranger!{%endif%}</h1>
     </div>
-    <form method="POST">
+    <form class="form-group" method="POST">
         {{form.hidden_tag()}}
-        {{form.name.label}}{{form.name()}}
-        {{form.submit()}}
+        {{form.name.label}}{{form.name(class_='form-control')}}
+        {{form.submit(class_='btn btn-primary mb-2')}}
     </form>
     <div>
         <p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
@@ -23,4 +23,4 @@
     </div>
 </div>
 
-{% endblock body%}
+{% endblock page_content%}
